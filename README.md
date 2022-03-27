@@ -1,8 +1,12 @@
-# Khl
+# KHL
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/khl`. To experiment with that code, run `bin/console` for an interactive prompt.
+开黑啦 Ruby SDK
 
-TODO: Delete this and the text above, and describe your gem
+[官方开发者文档](https://developer.kaiheila.cn/doc)
+
+## Prerequisites
+
+* ruby >= 2.3
 
 ## Installation
 
@@ -22,7 +26,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require "khl"
+
+token = "your_bot_token"
+
+# Call HTTP API
+http_client = KHL::HTTP::Client.new(token)
+http_client.guild.list # Call guild/list API
+
+# Connect to WebSocket API
+ws_client = KHL::WebSocket::Client.new(token)
+Thread.new { ws_client.run } # Run WebSocket client
+ws_clinet.state # Get current state
+ws_client.messages # Get message from queue
+```
 
 ## Development
 
@@ -32,4 +50,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/khl.
+Bug reports and pull requests are welcome on GitHub at https://github.com/DessertShop/KHL.
