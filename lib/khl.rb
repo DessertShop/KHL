@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "khl/version"
+require_relative "khl/http/client"
+require_relative "khl/web_socket/client"
 
-module Khl
-  class Error < StandardError; end
-  # Your code goes here...
-end
+module KHL; end
