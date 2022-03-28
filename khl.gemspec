@@ -3,7 +3,7 @@
 require_relative "lib/khl/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "KHL"
+  spec.name = "khl"
   spec.version = KHL::VERSION
   spec.summary = "Ruby SDK for 开黑啦"
   spec.description = "Ruby SDK for 开黑啦"
