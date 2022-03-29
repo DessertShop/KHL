@@ -32,11 +32,11 @@ require "khl"
 token = "your_bot_token"
 
 # Call HTTP API
-http_client = KHL::HTTP::Client.new(token)
+http_client = KHL::HTTP::Client.new(token: token)
 http_client.guild.list # Call guild/list API
 
 # Connect to WebSocket API
-ws_client = KHL::WebSocket::Client.new(token)
+ws_client = KHL::WebSocket::Client.new(token: token)
 Thread.new { ws_client.run } # Run WebSocket client
 ws_clinet.state # Get current state
 ws_client.messages.pop # Get message from queue

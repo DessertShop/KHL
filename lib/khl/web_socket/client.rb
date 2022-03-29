@@ -19,7 +19,8 @@ module KHL
     class Client
       attr_reader :config, :url, :messages, :state
 
-      # @param config [String] :token Bot token
+      # @param config [Hash] :config Config
+      # @option config [String] :token Bot token (required)
       # @option config [String] :token_type Token type
       # @option config [String] :language Language
       # @option config [Boolean] :compress Compress
