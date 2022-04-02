@@ -7,7 +7,6 @@
 
 * Fix params type
 
-
 ### 1.0.0 - 2022-03-29
 
 * Add 开黑啦 HTTP API
