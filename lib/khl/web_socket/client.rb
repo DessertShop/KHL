@@ -7,7 +7,7 @@ require "json"
 require "uri"
 require "zlib"
 
-require_relative "message"
+require_relative "../message"
 
 module KHL
   module WebSocket
@@ -24,7 +24,7 @@ module KHL
       # @option config [String] :token_type Token type
       # @option config [String] :language Language
       # @option config [Boolean] :compress Compress
-      def initialize(config)
+      def initialize(config = {})
         config[:compress] ||= false
 
         @config = config

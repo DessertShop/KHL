@@ -40,6 +40,13 @@ ws_client = KHL::WebSocket::Client.new(token: token)
 Thread.new { ws_client.run } # Run WebSocket client
 ws_clinet.state # Get current state
 ws_client.messages.pop # Get message from queue
+
+# Use Webhook API
+webhook_client = KHL::Webhook::Client.new("webhook_url",  "challenge_token")
+webhook_client.online? # => false
+webhook_client.challenge # Do challenge
+webhook_client.online? # => true
+webhook_client.parse_message("data from webhook")
 ```
 
 ## Development
