@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/hash/indifferent_access"
+require "active_support/hash_with_indifferent_access"
+
 module KHL
   module HTTP
     class Response
@@ -9,16 +12,16 @@ module KHL
       def initialize(raw_response)
         @raw_response = raw_response
         @http_code = raw_response.code.to_i
-        @body = JSON.parse(@raw_response.body)
+        @body = ActiveSupport::HashWithIndifferentAccess.new(JSON.parse(@raw_response.body))
       end
 
       def data
-        @body["data"]
+        @body[:data]
       end
 
       # The code in the response body
       def code
-        @body["code"]
+        @body[:code]
       end
 
       def max_request_limit
@@ -50,19 +53,19 @@ module KHL
       end
 
       def message
-        @body["message"]
+        @body[:message]
       end
 
       def page
-        data.dig("meta", "page") || 0
+        data.dig(:meta, :page) || 0
       end
 
       def page_size
-        data.dig("meta", "page_size") || 0
+        data.dig(:meta, :page_size) || 0
       end
 
       def page_total
-        data.dig("meta", "total") || 0
+        data.dig(:meta, :total) || 0
       end
     end
   end
