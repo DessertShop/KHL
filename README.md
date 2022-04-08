@@ -41,12 +41,11 @@ Thread.new { ws_client.run } # Run WebSocket client
 ws_clinet.state # Get current state
 ws_client.messages.pop # Get message from queue
 
-# Use Webhook API
-webhook_client = KHL::Webhook::Client.new("webhook_url",  "challenge_token")
-webhook_client.online? # => false
-webhook_client.challenge # Do challenge
-webhook_client.online? # => true
-webhook_client.parse_message("data from webhook")
+# Use Webhook API in Rails
+params = KHL::Webhook.decompress(request.body.string)
+encrypted_data = params[:encrypt]
+raw_json = KHL::Webhook.decode("your_encrypt_key", encrypted_data)
+message = KHL::Message.parse(raw_json)
 ```
 
 ## Development
