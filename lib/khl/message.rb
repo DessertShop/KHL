@@ -22,14 +22,14 @@ module KHL
     def self.parse(raw)
       return unless raw
 
-      data = JSON.parse(raw)
+      data = raw.is_a?(String) ? JSON.parse(raw) : raw
       data = ActiveSupport::HashWithIndifferentAccess.new(data)
 
-      message = Message.new
-      message.type = TYPES[data[:s]]
-      message.data = data[:d]
-      message.sn = data[:sn]
-      message
+      Message.new(
+        type: TYPES[data[:s]],
+        data: data[:d],
+        sn: data[:sn]
+      )
     end
 
     def initialize(type: nil, data: nil, sn: nil)
