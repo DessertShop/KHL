@@ -3,8 +3,6 @@
 require "active_support/core_ext/hash/indifferent_access"
 require "active_support/hash_with_indifferent_access"
 
-require_relative "event"
-
 module KHL
   class Message
     TYPES = %i[
@@ -36,12 +34,6 @@ module KHL
       @type = type
       @data = data
       @sn = sn
-    end
-
-    def event
-      return unless event?
-
-      Event.new(@data)
     end
 
     def to_h
