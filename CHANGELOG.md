@@ -1,3 +1,7 @@
+### 1.4.0 - 2022-04-18
+
+* Rename KHL::HTTP::Response#error? to KHL::HTTP::Response#failed?
+
 ### 1.3.0 - 2022-04-18
 
 * Remove KHL::Event
