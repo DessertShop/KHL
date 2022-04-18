@@ -48,7 +48,7 @@ module KHL
         http_code == 200 && code.zero?
       end
 
-      def error?
+      def failed?
         !success?
       end
 
