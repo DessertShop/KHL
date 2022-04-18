@@ -1,3 +1,7 @@
+### 1.2.1 - 2022-04-18
+
+* Add hash support for KHL::Message.parse
+
 ### 1.2.0 - 2022-04-08
 
 * Fix 开黑啦 Webhook API
