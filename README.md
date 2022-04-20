@@ -38,7 +38,6 @@ http_client.guild.list # Call guild/list API
 # Connect to WebSocket API
 ws_client = KHL::WebSocket::Client.new(token: token)
 Thread.new { ws_client.run } # Run WebSocket client
-ws_clinet.state # Get current state
 ws_client.messages.pop # Get message from queue
 
 # Use Webhook API in Rails
